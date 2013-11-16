@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://developer.intuit.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://developer.intuit.com/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://developer.intuit.com/">
+            <s:element name="authenticate">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element maxOccurs="1" minOccurs="0" name="strUserName" type="s:string"/>
+                        <s:element maxOccurs="1" minOccurs="0" name="strPassword" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="authenticateResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element maxOccurs="1" minOccurs="0" name="authenticateResult" type="tns:ArrayOfString"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfString">
+                <s:sequence>
+                    <s:element maxOccurs="unbounded" minOccurs="0" name="string" nillable="true" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+
+            <!-- added these two methods -->
+            <s:element name="serverVersion">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element maxOccurs="1" minOccurs="0" name="strVersion" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="serverVersionResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element maxOccurs="1" minOccurs="0" name="serverVersionResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="clientVersion">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element maxOccurs="1" minOccurs="0" name="strVersion" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="clientVersionResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element maxOccurs="1" minOccurs="0" name="clientVersionResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+
+
+            <s:element name="sendRequestXML">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element maxOccurs="1" minOccurs="0" name="ticket" type="s:string"/>
+                        <s:element maxOccurs="1" minOccurs="0" name="strHCPResponse" type="s:string"/>
+                        <s:element maxOccurs="1" minOccurs="0" name="strCompanyFileName" type="s:string"/>
+                        <s:element maxOccurs="1" minOccurs="0" name="qbXMLCountry" type="s:string"/>
+                        <s:element maxOccurs="1" minOccurs="1" name="qbXMLMajorVers" type="s:int"/>
+                        <s:element maxOccurs="1" minOccurs="1" name="qbXMLMinorVers" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="sendRequestXMLResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element maxOccurs="1" minOccurs="0" name="sendRequestXMLResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="receiveResponseXML">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element maxOccurs="1" minOccurs="0" name="ticket" type="s:string"/>
+                        <s:element maxOccurs="1" minOccurs="0" name="response" type="s:string"/>
+                        <s:element maxOccurs="1" minOccurs="0" name="hresult" type="s:string"/>
+                        <s:element maxOccurs="1" minOccurs="0" name="message" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="receiveResponseXMLResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element maxOccurs="1" minOccurs="1" name="receiveResponseXMLResult" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="connectionError">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element maxOccurs="1" minOccurs="0" name="ticket" type="s:string"/>
+                        <s:element maxOccurs="1" minOccurs="0" name="hresult" type="s:string"/>
+                        <s:element maxOccurs="1" minOccurs="0" name="message" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="connectionErrorResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element maxOccurs="1" minOccurs="0" name="connectionErrorResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getLastError">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element maxOccurs="1" minOccurs="0" name="ticket" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getLastErrorResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element maxOccurs="1" minOccurs="0" name="getLastErrorResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="closeConnection">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element maxOccurs="1" minOccurs="0" name="ticket" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="closeConnectionResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element maxOccurs="1" minOccurs="0" name="closeConnectionResult" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+        </s:schema>
+  </wsdl:types>
+  <wsdl:message name="connectionErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:connectionError">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="serverVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:serverVersionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="clientVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:clientVersionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendRequestXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:sendRequestXML">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLastErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:getLastErrorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="serverVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:serverVersion">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="receiveResponseXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:receiveResponseXMLResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLastErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:getLastError">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendRequestXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:sendRequestXMLResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="closeConnectionSoapOut">
+    <wsdl:part name="parameters" element="tns:closeConnectionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="receiveResponseXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:receiveResponseXML">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="connectionErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:connectionErrorResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="authenticateSoapIn">
+    <wsdl:part name="parameters" element="tns:authenticate">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="closeConnectionSoapIn">
+    <wsdl:part name="parameters" element="tns:closeConnection">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="clientVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:clientVersion">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="authenticateSoapOut">
+    <wsdl:part name="parameters" element="tns:authenticateResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="QBWebConnectorSvcSoap">
+    <wsdl:operation name="serverVersion">
+      <wsdl:input message="tns:serverVersionSoapIn">
+    </wsdl:input>
+      <wsdl:output message="tns:serverVersionSoapOut">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="clientVersion">
+      <wsdl:input message="tns:clientVersionSoapIn">
+    </wsdl:input>
+      <wsdl:output message="tns:clientVersionSoapOut">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authenticate">
+      <wsdl:input message="tns:authenticateSoapIn">
+    </wsdl:input>
+      <wsdl:output message="tns:authenticateSoapOut">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendRequestXML">
+      <wsdl:input message="tns:sendRequestXMLSoapIn">
+    </wsdl:input>
+      <wsdl:output message="tns:sendRequestXMLSoapOut">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="receiveResponseXML">
+      <wsdl:input message="tns:receiveResponseXMLSoapIn">
+    </wsdl:input>
+      <wsdl:output message="tns:receiveResponseXMLSoapOut">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="connectionError">
+      <wsdl:input message="tns:connectionErrorSoapIn">
+    </wsdl:input>
+      <wsdl:output message="tns:connectionErrorSoapOut">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastError">
+      <wsdl:input message="tns:getLastErrorSoapIn">
+    </wsdl:input>
+      <wsdl:output message="tns:getLastErrorSoapOut">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="closeConnection">
+      <wsdl:input message="tns:closeConnectionSoapIn">
+    </wsdl:input>
+      <wsdl:output message="tns:closeConnectionSoapOut">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="QBWebConnectorSvcSoap" type="tns:QBWebConnectorSvcSoap">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="serverVersion">
+      <soap:operation soapAction="http://developer.intuit.com/serverVersion" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="clientVersion">
+      <soap:operation soapAction="http://developer.intuit.com/clientVersion" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authenticate">
+      <soap:operation soapAction="http://developer.intuit.com/authenticate" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendRequestXML">
+      <soap:operation soapAction="http://developer.intuit.com/sendRequestXML" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="receiveResponseXML">
+      <soap:operation soapAction="http://developer.intuit.com/receiveResponseXML" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="connectionError">
+      <soap:operation soapAction="http://developer.intuit.com/connectionError" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastError">
+      <soap:operation soapAction="http://developer.intuit.com/getLastError" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="closeConnection">
+      <soap:operation soapAction="http://developer.intuit.com/closeConnection" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="QBWebConnectorSvc">
+    <wsdl:port name="QBWebConnectorSvcSoap" binding="tns:QBWebConnectorSvcSoap">
+      <soap:address location="https://idn.vogelfam.net/QBMSDonorSample/QBWebConnectorSvc.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
