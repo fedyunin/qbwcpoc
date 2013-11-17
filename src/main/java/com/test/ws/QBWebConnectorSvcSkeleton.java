@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -38,7 +39,7 @@ public class QBWebConnectorSvcSkeleton {
             java.net.URL url = QBWebConnectorSvcSkeleton.class.getResource("request.xml");
             try {
                 String xml = new java.util.Scanner(new File(url.getFile()), "UTF8").useDelimiter("\\Z").next();
-                xml=xml.replace("{{VendorName}}", "Vendor_" + UUID.randomUUID().toString());
+                xml = xml.replace("{{VendorName}}", "Vendor_" + new Random().nextLong());
                 sendRequestXMLResponse.setSendRequestXMLResult(xml);
                 stop = true;
             } catch (FileNotFoundException e) {
