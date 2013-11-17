@@ -6,8 +6,6 @@
  */
 package com.test.ws;
 
-import com.intuit.developer.*;
-
 /**
  * QBWebConnectorSvcMessageReceiverInOut message receiver
  */
@@ -15,7 +13,9 @@ import com.intuit.developer.*;
 public class QBWebConnectorSvcMessageReceiverInOut extends org.apache.axis2.receivers.AbstractInOutMessageReceiver {
 
 
-    public void invokeBusinessLogic(org.apache.axis2.context.MessageContext msgContext, org.apache.axis2.context.MessageContext newMsgContext) throws org.apache.axis2.AxisFault {
+    public void invokeBusinessLogic(org.apache.axis2.context.MessageContext msgContext,
+                                    org.apache.axis2.context.MessageContext newMsgContext)
+            throws org.apache.axis2.AxisFault {
 
         try {
 
@@ -28,754 +28,554 @@ public class QBWebConnectorSvcMessageReceiverInOut extends org.apache.axis2.rece
             //Find the axisOperation that has been set by the Dispatch phase.
             org.apache.axis2.description.AxisOperation op = msgContext.getOperationContext().getAxisOperation();
             if (op == null) {
-                throw new org.apache.axis2.AxisFault("Operation is not located, if this is doclit style the SOAP-ACTION should specified via the SOAP Action to use the RawXMLProvider");
+                throw new org.apache.axis2.AxisFault(
+                        "Operation is not located, if this is doclit style the SOAP-ACTION should specified via the SOAP Action to use the RawXMLProvider");
             }
 
-            java.lang.String methodName;
-            if ((op.getName() != null) && ((methodName = org.apache.axis2.util.JavaUtils.xmlNameToJavaIdentifier(op.getName().getLocalPart())) != null)) {
+            String methodName;
+            if ((op.getName() != null) && ((methodName =
+                    org.apache.axis2.util.JavaUtils.xmlNameToJavaIdentifier(op.getName().getLocalPart())) != null)) {
 
 
                 if ("sendRequestXML".equals(methodName)) {
 
-                    SendRequestXMLResponse sendRequestXMLResponse1 = null;
-                    SendRequestXML wrappedParam = (SendRequestXML) fromOM(msgContext.getEnvelope().getBody().getFirstElement(), SendRequestXML.class, getEnvelopeNamespaces(msgContext.getEnvelope()));
+                    com.intuit.developer.SendRequestXMLResponse sendRequestXMLResponse1 = null;
+                    com.intuit.developer.SendRequestXML wrappedParam = (com.intuit.developer.SendRequestXML) fromOM(
+                            msgContext.getEnvelope().getBody().getFirstElement(),
+                            com.intuit.developer.SendRequestXML.class, getEnvelopeNamespaces(msgContext.getEnvelope()));
 
                     sendRequestXMLResponse1 =
 
 
                             skel.sendRequestXML(wrappedParam);
 
-                    envelope = toEnvelope(getSOAPFactory(msgContext), sendRequestXMLResponse1, false, new javax.xml.namespace.QName("http://developer.intuit.com/", "sendRequestXML"));
+                    envelope = toEnvelope(getSOAPFactory(msgContext), sendRequestXMLResponse1, false,
+                            new javax.xml.namespace.QName("http://developer.intuit.com/", "sendRequestXML"));
                 } else if ("connectionError".equals(methodName)) {
 
-                    ConnectionErrorResponse connectionErrorResponse3 = null;
-                    ConnectionError wrappedParam = (ConnectionError) fromOM(msgContext.getEnvelope().getBody().getFirstElement(), ConnectionError.class, getEnvelopeNamespaces(msgContext.getEnvelope()));
+                    com.intuit.developer.ConnectionErrorResponse connectionErrorResponse3 = null;
+                    com.intuit.developer.ConnectionError wrappedParam = (com.intuit.developer.ConnectionError) fromOM(
+                            msgContext.getEnvelope().getBody().getFirstElement(),
+                            com.intuit.developer.ConnectionError.class,
+                            getEnvelopeNamespaces(msgContext.getEnvelope()));
 
                     connectionErrorResponse3 =
 
 
                             skel.connectionError(wrappedParam);
 
-                    envelope = toEnvelope(getSOAPFactory(msgContext), connectionErrorResponse3, false, new javax.xml.namespace.QName("http://developer.intuit.com/", "connectionError"));
+                    envelope = toEnvelope(getSOAPFactory(msgContext), connectionErrorResponse3, false,
+                            new javax.xml.namespace.QName("http://developer.intuit.com/", "connectionError"));
                 } else if ("serverVersion".equals(methodName)) {
 
-                    ServerVersionResponse serverVersionResponse5 = null;
-                    ServerVersion wrappedParam = (ServerVersion) fromOM(msgContext.getEnvelope().getBody().getFirstElement(), ServerVersion.class, getEnvelopeNamespaces(msgContext.getEnvelope()));
+                    com.intuit.developer.ServerVersionResponse serverVersionResponse5 = null;
+                    com.intuit.developer.ServerVersion wrappedParam = (com.intuit.developer.ServerVersion) fromOM(
+                            msgContext.getEnvelope().getBody().getFirstElement(),
+                            com.intuit.developer.ServerVersion.class, getEnvelopeNamespaces(msgContext.getEnvelope()));
 
                     serverVersionResponse5 =
 
 
                             skel.serverVersion(wrappedParam);
 
-                    envelope = toEnvelope(getSOAPFactory(msgContext), serverVersionResponse5, false, new javax.xml.namespace.QName("http://developer.intuit.com/", "serverVersion"));
+                    envelope = toEnvelope(getSOAPFactory(msgContext), serverVersionResponse5, false,
+                            new javax.xml.namespace.QName("http://developer.intuit.com/", "serverVersion"));
                 } else if ("clientVersion".equals(methodName)) {
 
-                    ClientVersionResponse clientVersionResponse7 = null;
-                    ClientVersion wrappedParam = (ClientVersion) fromOM(msgContext.getEnvelope().getBody().getFirstElement(), ClientVersion.class, getEnvelopeNamespaces(msgContext.getEnvelope()));
+                    com.intuit.developer.ClientVersionResponse clientVersionResponse7 = null;
+                    com.intuit.developer.ClientVersion wrappedParam = (com.intuit.developer.ClientVersion) fromOM(
+                            msgContext.getEnvelope().getBody().getFirstElement(),
+                            com.intuit.developer.ClientVersion.class, getEnvelopeNamespaces(msgContext.getEnvelope()));
 
                     clientVersionResponse7 =
 
 
                             skel.clientVersion(wrappedParam);
 
-                    envelope = toEnvelope(getSOAPFactory(msgContext), clientVersionResponse7, false, new javax.xml.namespace.QName("http://developer.intuit.com/", "clientVersion"));
+                    envelope = toEnvelope(getSOAPFactory(msgContext), clientVersionResponse7, false,
+                            new javax.xml.namespace.QName("http://developer.intuit.com/", "clientVersion"));
                 } else if ("closeConnection".equals(methodName)) {
 
-                    CloseConnectionResponse closeConnectionResponse9 = null;
-                    CloseConnection wrappedParam = (CloseConnection) fromOM(msgContext.getEnvelope().getBody().getFirstElement(), CloseConnection.class, getEnvelopeNamespaces(msgContext.getEnvelope()));
+                    com.intuit.developer.CloseConnectionResponse closeConnectionResponse9 = null;
+                    com.intuit.developer.CloseConnection wrappedParam = (com.intuit.developer.CloseConnection) fromOM(
+                            msgContext.getEnvelope().getBody().getFirstElement(),
+                            com.intuit.developer.CloseConnection.class,
+                            getEnvelopeNamespaces(msgContext.getEnvelope()));
 
                     closeConnectionResponse9 =
 
 
                             skel.closeConnection(wrappedParam);
 
-                    envelope = toEnvelope(getSOAPFactory(msgContext), closeConnectionResponse9, false, new javax.xml.namespace.QName("http://developer.intuit.com/", "closeConnection"));
+                    envelope = toEnvelope(getSOAPFactory(msgContext), closeConnectionResponse9, false,
+                            new javax.xml.namespace.QName("http://developer.intuit.com/", "closeConnection"));
                 } else if ("getLastError".equals(methodName)) {
 
-                    GetLastErrorResponse getLastErrorResponse11 = null;
-                    GetLastError wrappedParam = (GetLastError) fromOM(msgContext.getEnvelope().getBody().getFirstElement(), GetLastError.class, getEnvelopeNamespaces(msgContext.getEnvelope()));
+                    com.intuit.developer.GetLastErrorResponse getLastErrorResponse11 = null;
+                    com.intuit.developer.GetLastError wrappedParam = (com.intuit.developer.GetLastError) fromOM(
+                            msgContext.getEnvelope().getBody().getFirstElement(),
+                            com.intuit.developer.GetLastError.class, getEnvelopeNamespaces(msgContext.getEnvelope()));
 
                     getLastErrorResponse11 =
 
 
                             skel.getLastError(wrappedParam);
 
-                    envelope = toEnvelope(getSOAPFactory(msgContext), getLastErrorResponse11, false, new javax.xml.namespace.QName("http://developer.intuit.com/", "getLastError"));
+                    envelope = toEnvelope(getSOAPFactory(msgContext), getLastErrorResponse11, false,
+                            new javax.xml.namespace.QName("http://developer.intuit.com/", "getLastError"));
                 } else if ("authenticate".equals(methodName)) {
 
-                    AuthenticateResponse authenticateResponse13 = null;
-                    Authenticate wrappedParam = (Authenticate) fromOM(msgContext.getEnvelope().getBody().getFirstElement(), Authenticate.class, getEnvelopeNamespaces(msgContext.getEnvelope()));
+                    com.intuit.developer.AuthenticateResponse authenticateResponse13 = null;
+                    com.intuit.developer.Authenticate wrappedParam = (com.intuit.developer.Authenticate) fromOM(
+                            msgContext.getEnvelope().getBody().getFirstElement(),
+                            com.intuit.developer.Authenticate.class, getEnvelopeNamespaces(msgContext.getEnvelope()));
 
                     authenticateResponse13 =
 
 
                             skel.authenticate(wrappedParam);
 
-                    envelope = toEnvelope(getSOAPFactory(msgContext), authenticateResponse13, false, new javax.xml.namespace.QName("http://developer.intuit.com/", "authenticate"));
+                    envelope = toEnvelope(getSOAPFactory(msgContext), authenticateResponse13, false,
+                            new javax.xml.namespace.QName("http://developer.intuit.com/", "authenticate"));
                 } else if ("receiveResponseXML".equals(methodName)) {
 
-                    ReceiveResponseXMLResponse receiveResponseXMLResponse15 = null;
-                    ReceiveResponseXML wrappedParam = (ReceiveResponseXML) fromOM(msgContext.getEnvelope().getBody().getFirstElement(), ReceiveResponseXML.class, getEnvelopeNamespaces(msgContext.getEnvelope()));
+                    com.intuit.developer.ReceiveResponseXMLResponse receiveResponseXMLResponse15 = null;
+                    com.intuit.developer.ReceiveResponseXML wrappedParam =
+                            (com.intuit.developer.ReceiveResponseXML) fromOM(
+                                    msgContext.getEnvelope().getBody().getFirstElement(),
+                                    com.intuit.developer.ReceiveResponseXML.class,
+                                    getEnvelopeNamespaces(msgContext.getEnvelope()));
 
                     receiveResponseXMLResponse15 =
 
 
                             skel.receiveResponseXML(wrappedParam);
 
-                    envelope = toEnvelope(getSOAPFactory(msgContext), receiveResponseXMLResponse15, false, new javax.xml.namespace.QName("http://developer.intuit.com/", "receiveResponseXML"));
+                    envelope = toEnvelope(getSOAPFactory(msgContext), receiveResponseXMLResponse15, false,
+                            new javax.xml.namespace.QName("http://developer.intuit.com/", "receiveResponseXML"));
 
                 } else {
-                    throw new java.lang.RuntimeException("method not found");
+                    throw new RuntimeException("method not found");
                 }
 
 
                 newMsgContext.setEnvelope(envelope);
             }
-        } catch (java.lang.Exception e) {
+        } catch (Exception e) {
             throw org.apache.axis2.AxisFault.makeFault(e);
         }
     }
 
     //
+    private org.apache.axiom.om.OMElement toOM(com.intuit.developer.SendRequestXML param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
 
-    private static final javax.xml.bind.JAXBContext wsContext;
 
-    static {
-        javax.xml.bind.JAXBContext jc;
-        jc = null;
         try {
-            jc = javax.xml.bind.JAXBContext.newInstance(SendRequestXML.class, SendRequestXMLResponse.class, ConnectionError.class, ConnectionErrorResponse.class, ServerVersion.class, ServerVersionResponse.class, ClientVersion.class, ClientVersionResponse.class, CloseConnection.class, CloseConnectionResponse.class, GetLastError.class, GetLastErrorResponse.class, Authenticate.class, AuthenticateResponse.class, ReceiveResponseXML.class, ReceiveResponseXMLResponse.class);
-        } catch (javax.xml.bind.JAXBException ex) {
-            System.err.println("Unable to create JAXBContext: " + ex.getMessage());
-            ex.printStackTrace(System.err);
-            Runtime.getRuntime().exit(-1);
-        } finally {
-            wsContext = jc;
+            return param.getOMElement(com.intuit.developer.SendRequestXML.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(com.intuit.developer.SendRequestXMLResponse param,
+                                               boolean optimizeContent) throws org.apache.axis2.AxisFault {
+
+
+        try {
+            return param.getOMElement(com.intuit.developer.SendRequestXMLResponse.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(com.intuit.developer.ConnectionError param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+
+        try {
+            return param.getOMElement(com.intuit.developer.ConnectionError.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(com.intuit.developer.ConnectionErrorResponse param,
+                                               boolean optimizeContent) throws org.apache.axis2.AxisFault {
+
+
+        try {
+            return param.getOMElement(com.intuit.developer.ConnectionErrorResponse.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(com.intuit.developer.ServerVersion param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+
+        try {
+            return param.getOMElement(com.intuit.developer.ServerVersion.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(com.intuit.developer.ServerVersionResponse param,
+                                               boolean optimizeContent) throws org.apache.axis2.AxisFault {
+
+
+        try {
+            return param.getOMElement(com.intuit.developer.ServerVersionResponse.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(com.intuit.developer.ClientVersion param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+
+        try {
+            return param.getOMElement(com.intuit.developer.ClientVersion.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(com.intuit.developer.ClientVersionResponse param,
+                                               boolean optimizeContent) throws org.apache.axis2.AxisFault {
+
+
+        try {
+            return param.getOMElement(com.intuit.developer.ClientVersionResponse.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(com.intuit.developer.CloseConnection param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+
+        try {
+            return param.getOMElement(com.intuit.developer.CloseConnection.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(com.intuit.developer.CloseConnectionResponse param,
+                                               boolean optimizeContent) throws org.apache.axis2.AxisFault {
+
+
+        try {
+            return param.getOMElement(com.intuit.developer.CloseConnectionResponse.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(com.intuit.developer.GetLastError param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+
+        try {
+            return param.getOMElement(com.intuit.developer.GetLastError.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(com.intuit.developer.GetLastErrorResponse param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+
+        try {
+            return param.getOMElement(com.intuit.developer.GetLastErrorResponse.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(com.intuit.developer.Authenticate param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+
+        try {
+            return param.getOMElement(com.intuit.developer.Authenticate.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(com.intuit.developer.AuthenticateResponse param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+
+        try {
+            return param.getOMElement(com.intuit.developer.AuthenticateResponse.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(com.intuit.developer.ReceiveResponseXML param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+
+        try {
+            return param.getOMElement(com.intuit.developer.ReceiveResponseXML.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+
+    }
+
+    private org.apache.axiom.om.OMElement toOM(com.intuit.developer.ReceiveResponseXMLResponse param,
+                                               boolean optimizeContent) throws org.apache.axis2.AxisFault {
+
+
+        try {
+            return param.getOMElement(com.intuit.developer.ReceiveResponseXMLResponse.MY_QNAME,
+                    org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
+        }
+
+
+    }
+
+    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory,
+                                                          com.intuit.developer.SendRequestXMLResponse param,
+                                                          boolean optimizeContent,
+                                                          javax.xml.namespace.QName methodQName)
+            throws org.apache.axis2.AxisFault {
+        try {
+            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+
+            emptyEnvelope.getBody()
+                    .addChild(param.getOMElement(com.intuit.developer.SendRequestXMLResponse.MY_QNAME, factory));
+
+
+            return emptyEnvelope;
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
         }
     }
 
+    private com.intuit.developer.SendRequestXMLResponse wrapsendRequestXML() {
+        com.intuit.developer.SendRequestXMLResponse wrappedElement = new com.intuit.developer.SendRequestXMLResponse();
+        return wrappedElement;
+    }
 
-    private org.apache.axiom.om.OMElement toOM(SendRequestXML param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
+    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory,
+                                                          com.intuit.developer.ConnectionErrorResponse param,
+                                                          boolean optimizeContent,
+                                                          javax.xml.namespace.QName methodQName)
+            throws org.apache.axis2.AxisFault {
         try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
+            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
 
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
+            emptyEnvelope.getBody()
+                    .addChild(param.getOMElement(com.intuit.developer.ConnectionErrorResponse.MY_QNAME, factory));
 
-            JaxbRIDataSource source = new JaxbRIDataSource(SendRequestXML.class, param, marshaller, methodQName.getNamespaceURI(), methodQName.getLocalPart());
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace(methodQName.getNamespaceURI(), null);
-            return factory.createOMElement(source, methodQName.getLocalPart(), namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
+
+            return emptyEnvelope;
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
         }
     }
 
-    private org.apache.axiom.om.OMElement toOM(SendRequestXML param, boolean optimizeContent) throws org.apache.axis2.AxisFault {
+    private com.intuit.developer.ConnectionErrorResponse wrapconnectionError() {
+        com.intuit.developer.ConnectionErrorResponse wrappedElement =
+                new com.intuit.developer.ConnectionErrorResponse();
+        return wrappedElement;
+    }
+
+    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory,
+                                                          com.intuit.developer.ServerVersionResponse param,
+                                                          boolean optimizeContent,
+                                                          javax.xml.namespace.QName methodQName)
+            throws org.apache.axis2.AxisFault {
         try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
+            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
 
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
+            emptyEnvelope.getBody()
+                    .addChild(param.getOMElement(com.intuit.developer.ServerVersionResponse.MY_QNAME, factory));
 
-            JaxbRIDataSource source = new JaxbRIDataSource(SendRequestXML.class, param, marshaller, "http://developer.intuit.com/", "sendRequestXML");
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace("http://developer.intuit.com/", null);
-            return factory.createOMElement(source, "sendRequestXML", namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
+
+            return emptyEnvelope;
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
         }
     }
 
-    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, SendRequestXML param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        org.apache.axiom.soap.SOAPEnvelope envelope = factory.getDefaultEnvelope();
-        envelope.getBody().addChild(toOM(param, optimizeContent, methodQName));
-        return envelope;
+    private com.intuit.developer.ServerVersionResponse wrapserverVersion() {
+        com.intuit.developer.ServerVersionResponse wrappedElement = new com.intuit.developer.ServerVersionResponse();
+        return wrappedElement;
     }
 
-
-    private org.apache.axiom.om.OMElement toOM(SendRequestXMLResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
+    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory,
+                                                          com.intuit.developer.ClientVersionResponse param,
+                                                          boolean optimizeContent,
+                                                          javax.xml.namespace.QName methodQName)
+            throws org.apache.axis2.AxisFault {
         try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
+            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
 
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
+            emptyEnvelope.getBody()
+                    .addChild(param.getOMElement(com.intuit.developer.ClientVersionResponse.MY_QNAME, factory));
 
-            JaxbRIDataSource source = new JaxbRIDataSource(SendRequestXMLResponse.class, param, marshaller, methodQName.getNamespaceURI(), methodQName.getLocalPart());
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace(methodQName.getNamespaceURI(), null);
-            return factory.createOMElement(source, methodQName.getLocalPart(), namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
+
+            return emptyEnvelope;
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
         }
     }
 
-    private org.apache.axiom.om.OMElement toOM(SendRequestXMLResponse param, boolean optimizeContent) throws org.apache.axis2.AxisFault {
+    private com.intuit.developer.ClientVersionResponse wrapclientVersion() {
+        com.intuit.developer.ClientVersionResponse wrappedElement = new com.intuit.developer.ClientVersionResponse();
+        return wrappedElement;
+    }
+
+    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory,
+                                                          com.intuit.developer.CloseConnectionResponse param,
+                                                          boolean optimizeContent,
+                                                          javax.xml.namespace.QName methodQName)
+            throws org.apache.axis2.AxisFault {
         try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
+            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
 
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
+            emptyEnvelope.getBody()
+                    .addChild(param.getOMElement(com.intuit.developer.CloseConnectionResponse.MY_QNAME, factory));
 
-            JaxbRIDataSource source = new JaxbRIDataSource(SendRequestXMLResponse.class, param, marshaller, "http://developer.intuit.com/", "sendRequestXMLResponse");
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace("http://developer.intuit.com/", null);
-            return factory.createOMElement(source, "sendRequestXMLResponse", namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
+
+            return emptyEnvelope;
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
         }
     }
 
-    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, SendRequestXMLResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        org.apache.axiom.soap.SOAPEnvelope envelope = factory.getDefaultEnvelope();
-        envelope.getBody().addChild(toOM(param, optimizeContent, methodQName));
-        return envelope;
+    private com.intuit.developer.CloseConnectionResponse wrapcloseConnection() {
+        com.intuit.developer.CloseConnectionResponse wrappedElement =
+                new com.intuit.developer.CloseConnectionResponse();
+        return wrappedElement;
     }
 
-
-    private org.apache.axiom.om.OMElement toOM(ConnectionError param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
+    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory,
+                                                          com.intuit.developer.GetLastErrorResponse param,
+                                                          boolean optimizeContent,
+                                                          javax.xml.namespace.QName methodQName)
+            throws org.apache.axis2.AxisFault {
         try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
+            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
 
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
+            emptyEnvelope.getBody()
+                    .addChild(param.getOMElement(com.intuit.developer.GetLastErrorResponse.MY_QNAME, factory));
 
-            JaxbRIDataSource source = new JaxbRIDataSource(ConnectionError.class, param, marshaller, methodQName.getNamespaceURI(), methodQName.getLocalPart());
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace(methodQName.getNamespaceURI(), null);
-            return factory.createOMElement(source, methodQName.getLocalPart(), namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
+
+            return emptyEnvelope;
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
         }
     }
 
-    private org.apache.axiom.om.OMElement toOM(ConnectionError param, boolean optimizeContent) throws org.apache.axis2.AxisFault {
+    private com.intuit.developer.GetLastErrorResponse wrapgetLastError() {
+        com.intuit.developer.GetLastErrorResponse wrappedElement = new com.intuit.developer.GetLastErrorResponse();
+        return wrappedElement;
+    }
+
+    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory,
+                                                          com.intuit.developer.AuthenticateResponse param,
+                                                          boolean optimizeContent,
+                                                          javax.xml.namespace.QName methodQName)
+            throws org.apache.axis2.AxisFault {
         try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
+            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
 
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
+            emptyEnvelope.getBody()
+                    .addChild(param.getOMElement(com.intuit.developer.AuthenticateResponse.MY_QNAME, factory));
 
-            JaxbRIDataSource source = new JaxbRIDataSource(ConnectionError.class, param, marshaller, "http://developer.intuit.com/", "connectionError");
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace("http://developer.intuit.com/", null);
-            return factory.createOMElement(source, "connectionError", namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
+
+            return emptyEnvelope;
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
         }
     }
 
-    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, ConnectionError param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        org.apache.axiom.soap.SOAPEnvelope envelope = factory.getDefaultEnvelope();
-        envelope.getBody().addChild(toOM(param, optimizeContent, methodQName));
-        return envelope;
+    private com.intuit.developer.AuthenticateResponse wrapauthenticate() {
+        com.intuit.developer.AuthenticateResponse wrappedElement = new com.intuit.developer.AuthenticateResponse();
+        return wrappedElement;
     }
 
-
-    private org.apache.axiom.om.OMElement toOM(ConnectionErrorResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
+    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory,
+                                                          com.intuit.developer.ReceiveResponseXMLResponse param,
+                                                          boolean optimizeContent,
+                                                          javax.xml.namespace.QName methodQName)
+            throws org.apache.axis2.AxisFault {
         try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
+            org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
 
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
+            emptyEnvelope.getBody()
+                    .addChild(param.getOMElement(com.intuit.developer.ReceiveResponseXMLResponse.MY_QNAME, factory));
 
-            JaxbRIDataSource source = new JaxbRIDataSource(ConnectionErrorResponse.class, param, marshaller, methodQName.getNamespaceURI(), methodQName.getLocalPart());
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace(methodQName.getNamespaceURI(), null);
-            return factory.createOMElement(source, methodQName.getLocalPart(), namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
+
+            return emptyEnvelope;
+        } catch (org.apache.axis2.databinding.ADBException e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
         }
     }
 
-    private org.apache.axiom.om.OMElement toOM(ConnectionErrorResponse param, boolean optimizeContent) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(ConnectionErrorResponse.class, param, marshaller, "http://developer.intuit.com/", "connectionErrorResponse");
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace("http://developer.intuit.com/", null);
-            return factory.createOMElement(source, "connectionErrorResponse", namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, ConnectionErrorResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        org.apache.axiom.soap.SOAPEnvelope envelope = factory.getDefaultEnvelope();
-        envelope.getBody().addChild(toOM(param, optimizeContent, methodQName));
-        return envelope;
-    }
-
-
-    private org.apache.axiom.om.OMElement toOM(ServerVersion param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(ServerVersion.class, param, marshaller, methodQName.getNamespaceURI(), methodQName.getLocalPart());
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace(methodQName.getNamespaceURI(), null);
-            return factory.createOMElement(source, methodQName.getLocalPart(), namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.om.OMElement toOM(ServerVersion param, boolean optimizeContent) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(ServerVersion.class, param, marshaller, "http://developer.intuit.com/", "serverVersion");
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace("http://developer.intuit.com/", null);
-            return factory.createOMElement(source, "serverVersion", namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, ServerVersion param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        org.apache.axiom.soap.SOAPEnvelope envelope = factory.getDefaultEnvelope();
-        envelope.getBody().addChild(toOM(param, optimizeContent, methodQName));
-        return envelope;
-    }
-
-
-    private org.apache.axiom.om.OMElement toOM(ServerVersionResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(ServerVersionResponse.class, param, marshaller, methodQName.getNamespaceURI(), methodQName.getLocalPart());
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace(methodQName.getNamespaceURI(), null);
-            return factory.createOMElement(source, methodQName.getLocalPart(), namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.om.OMElement toOM(ServerVersionResponse param, boolean optimizeContent) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(ServerVersionResponse.class, param, marshaller, "http://developer.intuit.com/", "serverVersionResponse");
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace("http://developer.intuit.com/", null);
-            return factory.createOMElement(source, "serverVersionResponse", namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, ServerVersionResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        org.apache.axiom.soap.SOAPEnvelope envelope = factory.getDefaultEnvelope();
-        envelope.getBody().addChild(toOM(param, optimizeContent, methodQName));
-        return envelope;
-    }
-
-
-    private org.apache.axiom.om.OMElement toOM(ClientVersion param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(ClientVersion.class, param, marshaller, methodQName.getNamespaceURI(), methodQName.getLocalPart());
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace(methodQName.getNamespaceURI(), null);
-            return factory.createOMElement(source, methodQName.getLocalPart(), namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.om.OMElement toOM(ClientVersion param, boolean optimizeContent) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(ClientVersion.class, param, marshaller, "http://developer.intuit.com/", "clientVersion");
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace("http://developer.intuit.com/", null);
-            return factory.createOMElement(source, "clientVersion", namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, ClientVersion param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        org.apache.axiom.soap.SOAPEnvelope envelope = factory.getDefaultEnvelope();
-        envelope.getBody().addChild(toOM(param, optimizeContent, methodQName));
-        return envelope;
-    }
-
-
-    private org.apache.axiom.om.OMElement toOM(ClientVersionResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(ClientVersionResponse.class, param, marshaller, methodQName.getNamespaceURI(), methodQName.getLocalPart());
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace(methodQName.getNamespaceURI(), null);
-            return factory.createOMElement(source, methodQName.getLocalPart(), namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.om.OMElement toOM(ClientVersionResponse param, boolean optimizeContent) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(ClientVersionResponse.class, param, marshaller, "http://developer.intuit.com/", "clientVersionResponse");
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace("http://developer.intuit.com/", null);
-            return factory.createOMElement(source, "clientVersionResponse", namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, ClientVersionResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        org.apache.axiom.soap.SOAPEnvelope envelope = factory.getDefaultEnvelope();
-        envelope.getBody().addChild(toOM(param, optimizeContent, methodQName));
-        return envelope;
-    }
-
-
-    private org.apache.axiom.om.OMElement toOM(CloseConnection param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(CloseConnection.class, param, marshaller, methodQName.getNamespaceURI(), methodQName.getLocalPart());
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace(methodQName.getNamespaceURI(), null);
-            return factory.createOMElement(source, methodQName.getLocalPart(), namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.om.OMElement toOM(CloseConnection param, boolean optimizeContent) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(CloseConnection.class, param, marshaller, "http://developer.intuit.com/", "closeConnection");
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace("http://developer.intuit.com/", null);
-            return factory.createOMElement(source, "closeConnection", namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, CloseConnection param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        org.apache.axiom.soap.SOAPEnvelope envelope = factory.getDefaultEnvelope();
-        envelope.getBody().addChild(toOM(param, optimizeContent, methodQName));
-        return envelope;
-    }
-
-
-    private org.apache.axiom.om.OMElement toOM(CloseConnectionResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(CloseConnectionResponse.class, param, marshaller, methodQName.getNamespaceURI(), methodQName.getLocalPart());
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace(methodQName.getNamespaceURI(), null);
-            return factory.createOMElement(source, methodQName.getLocalPart(), namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.om.OMElement toOM(CloseConnectionResponse param, boolean optimizeContent) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(CloseConnectionResponse.class, param, marshaller, "http://developer.intuit.com/", "closeConnectionResponse");
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace("http://developer.intuit.com/", null);
-            return factory.createOMElement(source, "closeConnectionResponse", namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, CloseConnectionResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        org.apache.axiom.soap.SOAPEnvelope envelope = factory.getDefaultEnvelope();
-        envelope.getBody().addChild(toOM(param, optimizeContent, methodQName));
-        return envelope;
-    }
-
-
-    private org.apache.axiom.om.OMElement toOM(GetLastError param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(GetLastError.class, param, marshaller, methodQName.getNamespaceURI(), methodQName.getLocalPart());
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace(methodQName.getNamespaceURI(), null);
-            return factory.createOMElement(source, methodQName.getLocalPart(), namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.om.OMElement toOM(GetLastError param, boolean optimizeContent) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(GetLastError.class, param, marshaller, "http://developer.intuit.com/", "getLastError");
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace("http://developer.intuit.com/", null);
-            return factory.createOMElement(source, "getLastError", namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, GetLastError param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        org.apache.axiom.soap.SOAPEnvelope envelope = factory.getDefaultEnvelope();
-        envelope.getBody().addChild(toOM(param, optimizeContent, methodQName));
-        return envelope;
-    }
-
-
-    private org.apache.axiom.om.OMElement toOM(GetLastErrorResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(GetLastErrorResponse.class, param, marshaller, methodQName.getNamespaceURI(), methodQName.getLocalPart());
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace(methodQName.getNamespaceURI(), null);
-            return factory.createOMElement(source, methodQName.getLocalPart(), namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.om.OMElement toOM(GetLastErrorResponse param, boolean optimizeContent) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(GetLastErrorResponse.class, param, marshaller, "http://developer.intuit.com/", "getLastErrorResponse");
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace("http://developer.intuit.com/", null);
-            return factory.createOMElement(source, "getLastErrorResponse", namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, GetLastErrorResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        org.apache.axiom.soap.SOAPEnvelope envelope = factory.getDefaultEnvelope();
-        envelope.getBody().addChild(toOM(param, optimizeContent, methodQName));
-        return envelope;
-    }
-
-
-    private org.apache.axiom.om.OMElement toOM(Authenticate param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(Authenticate.class, param, marshaller, methodQName.getNamespaceURI(), methodQName.getLocalPart());
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace(methodQName.getNamespaceURI(), null);
-            return factory.createOMElement(source, methodQName.getLocalPart(), namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.om.OMElement toOM(Authenticate param, boolean optimizeContent) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(Authenticate.class, param, marshaller, "http://developer.intuit.com/", "authenticate");
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace("http://developer.intuit.com/", null);
-            return factory.createOMElement(source, "authenticate", namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, Authenticate param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        org.apache.axiom.soap.SOAPEnvelope envelope = factory.getDefaultEnvelope();
-        envelope.getBody().addChild(toOM(param, optimizeContent, methodQName));
-        return envelope;
-    }
-
-
-    private org.apache.axiom.om.OMElement toOM(AuthenticateResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(AuthenticateResponse.class, param, marshaller, methodQName.getNamespaceURI(), methodQName.getLocalPart());
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace(methodQName.getNamespaceURI(), null);
-            return factory.createOMElement(source, methodQName.getLocalPart(), namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.om.OMElement toOM(AuthenticateResponse param, boolean optimizeContent) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(AuthenticateResponse.class, param, marshaller, "http://developer.intuit.com/", "authenticateResponse");
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace("http://developer.intuit.com/", null);
-            return factory.createOMElement(source, "authenticateResponse", namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, AuthenticateResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        org.apache.axiom.soap.SOAPEnvelope envelope = factory.getDefaultEnvelope();
-        envelope.getBody().addChild(toOM(param, optimizeContent, methodQName));
-        return envelope;
-    }
-
-
-    private org.apache.axiom.om.OMElement toOM(ReceiveResponseXML param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(ReceiveResponseXML.class, param, marshaller, methodQName.getNamespaceURI(), methodQName.getLocalPart());
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace(methodQName.getNamespaceURI(), null);
-            return factory.createOMElement(source, methodQName.getLocalPart(), namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.om.OMElement toOM(ReceiveResponseXML param, boolean optimizeContent) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(ReceiveResponseXML.class, param, marshaller, "http://developer.intuit.com/", "receiveResponseXML");
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace("http://developer.intuit.com/", null);
-            return factory.createOMElement(source, "receiveResponseXML", namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, ReceiveResponseXML param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        org.apache.axiom.soap.SOAPEnvelope envelope = factory.getDefaultEnvelope();
-        envelope.getBody().addChild(toOM(param, optimizeContent, methodQName));
-        return envelope;
-    }
-
-
-    private org.apache.axiom.om.OMElement toOM(ReceiveResponseXMLResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(ReceiveResponseXMLResponse.class, param, marshaller, methodQName.getNamespaceURI(), methodQName.getLocalPart());
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace(methodQName.getNamespaceURI(), null);
-            return factory.createOMElement(source, methodQName.getLocalPart(), namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.om.OMElement toOM(ReceiveResponseXMLResponse param, boolean optimizeContent) throws org.apache.axis2.AxisFault {
-        try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-
-            org.apache.axiom.om.OMFactory factory = org.apache.axiom.om.OMAbstractFactory.getOMFactory();
-
-            JaxbRIDataSource source = new JaxbRIDataSource(ReceiveResponseXMLResponse.class, param, marshaller, "http://developer.intuit.com/", "receiveResponseXMLResponse");
-            org.apache.axiom.om.OMNamespace namespace = factory.createOMNamespace("http://developer.intuit.com/", null);
-            return factory.createOMElement(source, "receiveResponseXMLResponse", namespace);
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
-
-    private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, ReceiveResponseXMLResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName) throws org.apache.axis2.AxisFault {
-        org.apache.axiom.soap.SOAPEnvelope envelope = factory.getDefaultEnvelope();
-        envelope.getBody().addChild(toOM(param, optimizeContent, methodQName));
-        return envelope;
+    private com.intuit.developer.ReceiveResponseXMLResponse wrapreceiveResponseXML() {
+        com.intuit.developer.ReceiveResponseXMLResponse wrappedElement =
+                new com.intuit.developer.ReceiveResponseXMLResponse();
+        return wrappedElement;
     }
 
 
@@ -786,93 +586,136 @@ public class QBWebConnectorSvcMessageReceiverInOut extends org.apache.axis2.rece
         return factory.getDefaultEnvelope();
     }
 
-    private java.lang.Object fromOM(org.apache.axiom.om.OMElement param, java.lang.Class type, java.util.Map extraNamespaces) throws org.apache.axis2.AxisFault {
+
+    private Object fromOM(org.apache.axiom.om.OMElement param, Class type, java.util.Map extraNamespaces)
+            throws org.apache.axis2.AxisFault {
+
         try {
-            javax.xml.bind.JAXBContext context = wsContext;
-            javax.xml.bind.Unmarshaller unmarshaller = context.createUnmarshaller();
 
-            return unmarshaller.unmarshal(param.getXMLStreamReaderWithoutCaching(), type).getValue();
-        } catch (javax.xml.bind.JAXBException bex) {
-            throw org.apache.axis2.AxisFault.makeFault(bex);
-        }
-    }
+            if (com.intuit.developer.SendRequestXML.class.equals(type)) {
 
-    class JaxbRIDataSource implements org.apache.axiom.om.OMDataSource {
-        /**
-         * Bound object for output.
-         */
-        private final Object outObject;
+                return com.intuit.developer.SendRequestXML.Factory.parse(param.getXMLStreamReaderWithoutCaching());
 
-        /**
-         * Bound class for output.
-         */
-        private final Class outClazz;
 
-        /**
-         * Marshaller.
-         */
-        private final javax.xml.bind.Marshaller marshaller;
-
-        /**
-         * Namespace
-         */
-        private String nsuri;
-
-        /**
-         * Local name
-         */
-        private String name;
-
-        /**
-         * Constructor from object and marshaller.
-         *
-         * @param obj
-         * @param marshaller
-         */
-        public JaxbRIDataSource(Class clazz, Object obj, javax.xml.bind.Marshaller marshaller, String nsuri, String name) {
-            this.outClazz = clazz;
-            this.outObject = obj;
-            this.marshaller = marshaller;
-            this.nsuri = nsuri;
-            this.name = name;
-        }
-
-        public void serialize(java.io.OutputStream output, org.apache.axiom.om.OMOutputFormat format) throws javax.xml.stream.XMLStreamException {
-            try {
-                marshaller.marshal(new javax.xml.bind.JAXBElement(new javax.xml.namespace.QName(nsuri, name), outObject.getClass(), outObject), output);
-            } catch (javax.xml.bind.JAXBException e) {
-                throw new javax.xml.stream.XMLStreamException("Error in JAXB marshalling", e);
             }
-        }
 
-        public void serialize(java.io.Writer writer, org.apache.axiom.om.OMOutputFormat format) throws javax.xml.stream.XMLStreamException {
-            try {
-                marshaller.marshal(new javax.xml.bind.JAXBElement(new javax.xml.namespace.QName(nsuri, name), outObject.getClass(), outObject), writer);
-            } catch (javax.xml.bind.JAXBException e) {
-                throw new javax.xml.stream.XMLStreamException("Error in JAXB marshalling", e);
+            if (com.intuit.developer.SendRequestXMLResponse.class.equals(type)) {
+
+                return com.intuit.developer.SendRequestXMLResponse.Factory
+                        .parse(param.getXMLStreamReaderWithoutCaching());
+
+
             }
-        }
 
-        public void serialize(javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
-            try {
-                marshaller.marshal(new javax.xml.bind.JAXBElement(new javax.xml.namespace.QName(nsuri, name), outObject.getClass(), outObject), xmlWriter);
-            } catch (javax.xml.bind.JAXBException e) {
-                throw new javax.xml.stream.XMLStreamException("Error in JAXB marshalling", e);
+            if (com.intuit.developer.ConnectionError.class.equals(type)) {
+
+                return com.intuit.developer.ConnectionError.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+
+
             }
-        }
 
-        public javax.xml.stream.XMLStreamReader getReader() throws javax.xml.stream.XMLStreamException {
-            try {
-                javax.xml.bind.JAXBContext context = wsContext;
-                org.apache.axiom.om.impl.builder.SAXOMBuilder builder = new org.apache.axiom.om.impl.builder.SAXOMBuilder();
-                javax.xml.bind.Marshaller marshaller = context.createMarshaller();
-                marshaller.marshal(new javax.xml.bind.JAXBElement(new javax.xml.namespace.QName(nsuri, name), outObject.getClass(), outObject), builder);
+            if (com.intuit.developer.ConnectionErrorResponse.class.equals(type)) {
 
-                return builder.getRootElement().getXMLStreamReader();
-            } catch (javax.xml.bind.JAXBException e) {
-                throw new javax.xml.stream.XMLStreamException("Error in JAXB marshalling", e);
+                return com.intuit.developer.ConnectionErrorResponse.Factory
+                        .parse(param.getXMLStreamReaderWithoutCaching());
+
+
             }
+
+            if (com.intuit.developer.ServerVersion.class.equals(type)) {
+
+                return com.intuit.developer.ServerVersion.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+
+
+            }
+
+            if (com.intuit.developer.ServerVersionResponse.class.equals(type)) {
+
+                return com.intuit.developer.ServerVersionResponse.Factory
+                        .parse(param.getXMLStreamReaderWithoutCaching());
+
+
+            }
+
+            if (com.intuit.developer.ClientVersion.class.equals(type)) {
+
+                return com.intuit.developer.ClientVersion.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+
+
+            }
+
+            if (com.intuit.developer.ClientVersionResponse.class.equals(type)) {
+
+                return com.intuit.developer.ClientVersionResponse.Factory
+                        .parse(param.getXMLStreamReaderWithoutCaching());
+
+
+            }
+
+            if (com.intuit.developer.CloseConnection.class.equals(type)) {
+
+                return com.intuit.developer.CloseConnection.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+
+
+            }
+
+            if (com.intuit.developer.CloseConnectionResponse.class.equals(type)) {
+
+                return com.intuit.developer.CloseConnectionResponse.Factory
+                        .parse(param.getXMLStreamReaderWithoutCaching());
+
+
+            }
+
+            if (com.intuit.developer.GetLastError.class.equals(type)) {
+
+                return com.intuit.developer.GetLastError.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+
+
+            }
+
+            if (com.intuit.developer.GetLastErrorResponse.class.equals(type)) {
+
+                return com.intuit.developer.GetLastErrorResponse.Factory
+                        .parse(param.getXMLStreamReaderWithoutCaching());
+
+
+            }
+
+            if (com.intuit.developer.Authenticate.class.equals(type)) {
+
+                return com.intuit.developer.Authenticate.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+
+
+            }
+
+            if (com.intuit.developer.AuthenticateResponse.class.equals(type)) {
+
+                return com.intuit.developer.AuthenticateResponse.Factory
+                        .parse(param.getXMLStreamReaderWithoutCaching());
+
+
+            }
+
+            if (com.intuit.developer.ReceiveResponseXML.class.equals(type)) {
+
+                return com.intuit.developer.ReceiveResponseXML.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+
+
+            }
+
+            if (com.intuit.developer.ReceiveResponseXMLResponse.class.equals(type)) {
+
+                return com.intuit.developer.ReceiveResponseXMLResponse.Factory
+                        .parse(param.getXMLStreamReaderWithoutCaching());
+
+
+            }
+
+        } catch (Exception e) {
+            throw org.apache.axis2.AxisFault.makeFault(e);
         }
+        return null;
     }
 
 
@@ -889,7 +732,7 @@ public class QBWebConnectorSvcMessageReceiverInOut extends org.apache.axis2.rece
         return returnMap;
     }
 
-    private org.apache.axis2.AxisFault createAxisFault(java.lang.Exception e) {
+    private org.apache.axis2.AxisFault createAxisFault(Exception e) {
         org.apache.axis2.AxisFault f;
         Throwable cause = e.getCause();
         if (cause != null) {

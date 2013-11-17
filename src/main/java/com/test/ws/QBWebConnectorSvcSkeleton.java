@@ -10,50 +10,71 @@ import com.intuit.developer.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.UUID;
 
 /**
  * QBWebConnectorSvcSkeleton java skeleton for the axisService
  */
 public class QBWebConnectorSvcSkeleton {
 
+    static boolean stop = false;
+
     private final Logger log = LoggerFactory.getLogger(QBWebConnectorSvcSkeleton.class);
+    private String authenticatedUserID;
 
     /**
-     * Auto generated method signature
+     * Prepares and send QBXML request for execute on Quickbooks Company data.
      *
      * @param sendRequestXML
      * @return sendRequestXMLResponse
      */
 
     public SendRequestXMLResponse sendRequestXML(SendRequestXML sendRequestXML) {
-        //TODO : fill this with the necessary business logic
-        throw new java.lang.UnsupportedOperationException("Please implement " + this.getClass().getName() + "#sendRequestXML");
+        log.info("sendRequestXML: " + sendRequestXML.toString());
+        SendRequestXMLResponse sendRequestXMLResponse = new SendRequestXMLResponse();
+        if (!stop) {
+            java.net.URL url = QBWebConnectorSvcSkeleton.class.getResource("request.xml");
+            try {
+                String xml = new java.util.Scanner(new File(url.getFile()), "UTF8").useDelimiter("\\Z").next();
+                xml=xml.replace("{{VendorName}}", "Vendor_" + UUID.randomUUID().toString());
+                sendRequestXMLResponse.setSendRequestXMLResult(xml);
+                stop = true;
+            } catch (FileNotFoundException e) {
+                log.error(e.getMessage(), e);
+            }
+        } else {
+            sendRequestXMLResponse.setSendRequestXMLResult("");
+        }
+        return sendRequestXMLResponse;
     }
 
 
     /**
-     * Auto generated method signature
+     * Received when there are error while connection to Quickbooks.
      *
      * @param connectionError
      * @return connectionErrorResponse
      */
 
     public ConnectionErrorResponse connectionError(ConnectionError connectionError) {
-        //TODO : fill this with the necessary business logic
-        throw new java.lang.UnsupportedOperationException("Please implement " + this.getClass().getName() + "#connectionError");
+        log.info("Connection error: " + connectionError.toString());
+        ConnectionErrorResponse connectionErrorResponse = new ConnectionErrorResponse();
+        connectionErrorResponse.setConnectionErrorResult("");
+        return connectionErrorResponse;
     }
 
 
     /**
-     * Auto generated method signature
+     * Notify Webconnector about server (this webservice) version.
      *
      * @param serverVersion
      * @return serverVersionResponse
      */
 
     public ServerVersionResponse serverVersion(ServerVersion serverVersion) {
+        log.info("serverVersion: " + serverVersion.toString());
         ServerVersionResponse serverVersionResponse = new ServerVersionResponse();
         serverVersionResponse.setServerVersionResult("1.0");
         return serverVersionResponse;
@@ -61,44 +82,53 @@ public class QBWebConnectorSvcSkeleton {
 
 
     /**
-     * Auto generated method signature
+     * Provides information about version of WebConnector.
+     * Allow to request user to update WebConnector if current version of WebConnector does not meet our requirements.
      *
      * @param clientVersion
      * @return clientVersionResponse
      */
 
     public ClientVersionResponse clientVersion(ClientVersion clientVersion) {
-        return new ClientVersionResponse("1.0");
+        log.info("clientVersion: " + clientVersion.toString());
+        // create empty response for continue.
+        ClientVersionResponse clientVersionResponse = new ClientVersionResponse();
+        return clientVersionResponse;
     }
 
 
     /**
-     * Auto generated method signature
+     * Action on close connection with Quickbooks.
      *
      * @param closeConnection
      * @return closeConnectionResponse
      */
 
     public CloseConnectionResponse closeConnection(CloseConnection closeConnection) {
-        return new CloseConnectionResponse("Connection closed");
+        log.info("closeConnection: " + closeConnection.toString());
+        CloseConnectionResponse closeConnectionResponse = new CloseConnectionResponse();
+        closeConnectionResponse.setCloseConnectionResult("Close connection.");
+        return closeConnectionResponse;
     }
 
 
     /**
-     * Auto generated method signature
+     * Return errors.
      *
      * @param getLastError
      * @return getLastErrorResponse
      */
 
     public GetLastErrorResponse getLastError(GetLastError getLastError) {
-        //TODO : fill this with the necessary business logic
-        throw new java.lang.UnsupportedOperationException("Please implement " + this.getClass().getName() + "#getLastError");
+        log.info("getLastError: " + getLastError.toString());
+        GetLastErrorResponse lastErrorResponse = new GetLastErrorResponse();
+        // return empty: no errors.
+        return lastErrorResponse;
     }
 
 
     /**
-     * Auto generated method signature
+     * Authenticate user in our webservice.
      *
      * @param authenticate
      * @return authenticateResponse
@@ -106,13 +136,35 @@ public class QBWebConnectorSvcSkeleton {
 
     public AuthenticateResponse authenticate(Authenticate authenticate) {
         log.info("Authenticate:" + authenticate.toString());
-        ArrayOfString arrayOfString = new ArrayOfString();
-        List<String> values = new ArrayList<String>(2);
-        values.add("{F5FCCBC3-AA13-4d28-9DBF-3E571823F2BB}");
-        values.add("{F5FCCBC3-AA13-4d28-9DBF-3E571823F2BB}");
-//        values.add("none");
-        arrayOfString.setString(values);
+
+        // prepare response
         AuthenticateResponse authenticateResponse = new AuthenticateResponse();
+        ArrayOfString arrayOfString = new ArrayOfString();
+
+        if ("user".equals(authenticate.getStrUserName()) && "123".equals(authenticate.getStrPassword())) {
+            // do authenticate
+
+            //The first member of the array is a session token, which could be a GUID or anything else that you want
+            // to use to identify the session. This token will be returned by QBWC in subsequent callbacks in the
+            // session
+            authenticatedUserID = UUID.randomUUID().toString();
+            arrayOfString.addString(authenticatedUserID);
+            stop = false;
+            // If you do have work to do for the that user, you can supply the full pathname of the company to be
+            // used in the current update
+            // e.g: arrayOfString.addString("c:\\Users\\Public\\Documents\\Test Company.qbw");
+
+            // empty for use opened company in Quickbooks.
+            arrayOfString.addString("");
+
+        } else {
+            // If the username and password in the authenticate call is invalid, you would supply the value “nvu”.
+            arrayOfString.addString("");
+            arrayOfString.addString("nvu");
+            stop = true;
+        }
+
+
         authenticateResponse.setAuthenticateResult(arrayOfString);
         return authenticateResponse;
     }
@@ -126,8 +178,8 @@ public class QBWebConnectorSvcSkeleton {
      */
 
     public ReceiveResponseXMLResponse receiveResponseXML(ReceiveResponseXML receiveResponseXML) {
-        //TODO : fill this with the necessary business logic
-        throw new java.lang.UnsupportedOperationException("Please implement " + this.getClass().getName() + "#receiveResponseXML");
+        log.info("receiveResponseXML: " + receiveResponseXML.toString());
+        return new ReceiveResponseXMLResponse();
     }
 
 }

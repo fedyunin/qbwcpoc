@@ -1,15 +1,12 @@
 <?xml version="1.0"?>
 <QBWCXML>
-    <AppName>QBWC PoC Sample webservice</AppName>
-    <AppID>PoC for QBWC</AppID>
+    <AppDescription>Test webservice</AppDescription>
+    <AppID></AppID>
+    <AppName>QBWebConnectorSvc</AppName>
     <AppURL>http://localhost:8080/services/QBWebConnectorSvc</AppURL>
-    <AppDescription>Test webservice for try to use QBWC for get access to Quickbooks Desktop data.</AppDescription>
-    <AppSupport>http://localhost</AppSupport>
-    <UserName>iqbal1</UserName>
-    <OwnerID>{57F3B9B1-86F1-4fcc-B1EE-566DE1813D20}</OwnerID>
-    <FileID>{90A44FB5-33D9-4815-AC85-BC87A7E7D1EB}</FileID>
+    <AppSupport>http://localhost:8080/support</AppSupport>
+    <UserName>user</UserName>
+    <OwnerID>{33A44FB5-33D9-4815-AC85-BC87A7E7D1EB}</OwnerID>
+    <FileID>{44A44FB5-33D9-4815-AC85-BC87A7E7D1EB}</FileID>
     <QBType>QBFS</QBType>
-    <Scheduler>
-        <RunEveryNMinutes>1</RunEveryNMinutes>
-    </Scheduler>
 </QBWCXML>
