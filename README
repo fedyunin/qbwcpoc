@@ -1,1 +1,17 @@
-The PoC of simple WebConnector service for QuickBooks Desktop.
+QBWCPoC
+=======
+
+Quickbooks Web Connector proof-of-concept project. 
+
+This is very simple project demonstrates how to use quick books web connector for get access to Quickbooks Desktop.
+Project are simple Java web service that interact with Quickbooks Webconnector.
+
+For build project:
+
+mvn package
+
+then use QBWCPoCHowto.pdf for details how to.
+
+
+
+
